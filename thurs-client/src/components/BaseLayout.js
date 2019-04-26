@@ -5,6 +5,8 @@ import {AddBook} from './AddBook'
 import {Link, NavLink} from 'react-router-dom'
 import {DeleteBook} from './DeleteBook'
 import {UpdateBook} from './UpdateBook'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+
 
 export class Menu extends Component {
 
@@ -15,7 +17,7 @@ export class Menu extends Component {
       <li><NavLink to="/view-all-books">View All Books</NavLink></li>
       <li><NavLink to="/add-book">Add Book</NavLink></li>
       <li><NavLink to="/delete-book">Delete Book</NavLink></li>
-      <li><NavLink to="/update-book">Update Book</NavLink></li>
+      
       </ul>
     )
   }

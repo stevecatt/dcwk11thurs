@@ -9,10 +9,15 @@ export class UpdateBook extends Component {
       genre:"",
       publisher:"",
       year:"",
+      path: "",
+      id:""
     }
   }
 
+  
+  
 
+  
   handleTextBoxChange = (e) => {
 
     this.setState({
@@ -34,17 +39,26 @@ export class UpdateBook extends Component {
       name: this.state.name,
       year: this.state.year,
       genre: this.state.genre,
-      publisher: this.state.publisher
+      publisher: this.state.publisher,
+      id:this.state.id
     })
   })
   
   }
-  
+  componentDidMount(){
+    console.log(this.props.match.params.book)
+    this.setState({
+      id: this.props.match.params.book
+    })
+    
+  }
 
+  
   render() {
     return (
       <div>
-        <h1>Update A Book</h1>
+        <h1>Update</h1>
+        
         <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter name" name="name" />
         <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter genre" name="genre" />
        <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter publisher" name="publisher" />

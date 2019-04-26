@@ -15,6 +15,7 @@ export class AddBook extends Component {
   handleTextBoxChange = (e) => {
 
     this.setState({
+      //note that this is an array in order to create the states
       [e.target.name]: e.target.value
     })
   
@@ -36,6 +37,17 @@ export class AddBook extends Component {
       publisher: this.state.publisher
     })
   })
+  // this .then aint workking
+  .then(response => response.json())
+  .then(result => {
+      if(result.success) {
+        console.log("success")
+        // go fetch the books from the server and display it
+        this.getAllBooks()
+      } else {
+        // show some error
+      }
+    })
   
   }
   

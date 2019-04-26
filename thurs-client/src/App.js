@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import './App.css';
 import { BookList } from './components/BookList';
 //import { DisplayName } from './DisplayName';
-import {Books} from './components/Books'
+//import {Books} from './components/Books'
 
 
 
@@ -20,57 +20,57 @@ class App extends Component {
 
   }
 
-  getAllBooks = ()=>{
-    let url = 'http://localhost:5000/api/books'
+  // getAllBooks = ()=>{
+  //   let url = 'http://localhost:5000/api/books'
 
-    fetch(url)
-    .then(response => response.json())
-    .then(json => {
-       this.setState({
-        books: json
+  //   fetch(url)
+  //   .then(response => response.json())
+  //   .then(json => {
+  //      this.setState({
+  //       books: json
         
-      })
-      //callback(json)
-    })
-  }
+  //     })
+  //     //callback(json)
+  //   })
+  // }
 
-  componentDidMount() {
+  // componentDidMount() {
 
-    //this.getAllBooks()
+  //   //this.getAllBooks()
 
-  }
+  // }
 
 // inputName= (name)=>{
 //   this.setState({
 //     name:name
 //   })
 // }
-handleTextBoxChange = (e) => {
+// handleTextBoxChange = (e) => {
 
-  this.setState({
-    [e.target.name]: e.target.value
-  })
+//   this.setState({
+//     [e.target.name]: e.target.value
+//   })
 
-}
+// }
 
-handleSaveBookClick = () => {
+// handleSaveBookClick = () => {
 
   
 
-  fetch('http://localhost:5000/api/books', {
-method: 'POST',
-headers: {
-  'Content-Type': 'application/json'
-},
-  body: JSON.stringify({
-    name: this.state.name,
-    year: this.state.year,
-    genre: this.state.genre,
-    publisher: this.state.publisher
-  })
-})
-.then(this.getAllBooks())
-}
+//   fetch('http://localhost:5000/api/books', {
+// method: 'POST',
+// headers: {
+//   'Content-Type': 'application/json'
+// },
+//   body: JSON.stringify({
+//     name: this.state.name,
+//     year: this.state.year,
+//     genre: this.state.genre,
+//     publisher: this.state.publisher
+//   })
+// })
+// .then(this.getAllBooks())
+// }
 
 
 render() {

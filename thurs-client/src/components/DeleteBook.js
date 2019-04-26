@@ -9,7 +9,8 @@ export class DeleteBook extends Component{
             name:"",
             year:"",
             genre:"",
-            publisher:""
+            publisher:"",
+            id:""
         }
     }
 
@@ -30,6 +31,7 @@ export class DeleteBook extends Component{
       }
     
     componentDidMount() {
+      console.log(this.props.match)
     
         this.getAllBooks()
     
@@ -44,11 +46,22 @@ export class DeleteBook extends Component{
         'Content-Type': 'application/json'
              },
         body: JSON.stringify({
-        name: book,
+        id: book,
         
     })
-  })
-  
+  }).then(response => response.json())
+  .then(result => {
+      if(result.success) {
+        console.log(result)
+        // go fetch the books from the server and display it
+        this.getAllBooks()
+      } else {
+        // show some error
+      }
+    })
+    
+  //)
+  // may need a if else function for this to re render
   }
      
     
@@ -62,7 +75,7 @@ export class DeleteBook extends Component{
            //make sure the button calls a function {() => this.props.removeTaskCallback(task) if trying to pass something like "task"}
             return <div key={index}>         
                              <li>{book.book_name}</li>
-                             <button onClick={()=>this.removeBook(book.book_name)}>Delete</button>
+                             <button onClick={()=>this.removeBook(book.id)}>Delete</button>
                         
                             
                     </div>

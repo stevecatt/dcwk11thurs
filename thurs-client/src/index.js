@@ -8,6 +8,7 @@ import {AddBook} from './components/AddBook'
 import {BookList} from './components/BookList'
 import {DeleteBook} from './components/DeleteBook'
 import {UpdateBook} from './components/UpdateBook'
+import {Books} from './components/Books'
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
@@ -20,7 +21,7 @@ ReactDOM.render(
             <Route path="/view-all-books" component={BookList} />
             <Route path="/add-book" component={AddBook} />
             <Route path="/delete-book" component={DeleteBook} />
-            <Route Path="/update-book" component={UpdateBook} />
+            <Route path="/update-book/:book" component={UpdateBook} />
   
         </Switch>
         </BaseLayout>

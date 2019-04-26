@@ -49,8 +49,15 @@ app.post('/api/books',(req,res) => {
   
     books.push({name:name, genre:genre, publisher:publisher, year:year, image:image})
     db.none('INSERT INTO reactbooks (book_name,book_genre,book_publisher,book_year) VALUES($1,$2,$3,$4)',[name, genre, publisher,year,])
-    .then (
-    res.json(books))
+    
+      
+      .then((saved) => {
+        if(saved) {console.log (saved)
+          res.json({success: true})
+        } else {
+          res.json({success: false, message: 'Error deleting book'})
+        }
+      })
     
   })
   
@@ -63,15 +70,21 @@ app.post('/api/books',(req,res) => {
 
   app.post('/api/delete-book',(req,res) => {
 
-    let name = req.body.name
+    let id = req.body.id
     
   
-    console.log(name)
+    console.log(id)
     
   
-    db.none('DELETE FROM reactbooks WHERE book_name = $1',[name])
-    .then (
-    res.json(books))
+    db.none('DELETE FROM reactbooks WHERE id = $1',[id])
+    
+      .then((deleted) => {
+        if(deleted) {console.log (deleted)
+          res.json({success: true})
+        } else {
+          res.json({success: false, message: 'Error deleting book'})
+        }
+      })
     
   })
 
