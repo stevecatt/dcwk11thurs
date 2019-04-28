@@ -21,7 +21,7 @@ ReactDOM.render(
             <Route path="/view-all-books" component={BookList} />
             <Route path="/add-book" component={AddBook} />
             <Route path="/delete-book" component={DeleteBook} />
-            <Route path="/update-book/:book" component={UpdateBook} />
+            <Route path="/update-book/:id/:name/:genre/:publisher/:year" component={UpdateBook} />
   
         </Switch>
         </BaseLayout>

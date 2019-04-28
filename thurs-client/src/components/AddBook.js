@@ -11,6 +11,14 @@ export class AddBook extends Component {
     }
   }
 
+  viewAllBooks =() => {
+    console.log("hopefully going back to view all books")
+   
+    this.props.history.push('/view-all-books')
+    
+    
+ }
+  
 
   handleTextBoxChange = (e) => {
 
@@ -43,7 +51,7 @@ export class AddBook extends Component {
       if(result.success) {
         console.log("success")
         // go fetch the books from the server and display it
-        this.getAllBooks()
+        this.viewAllBooks()
       } else {
         // show some error
       }

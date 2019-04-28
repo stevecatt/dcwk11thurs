@@ -14,9 +14,9 @@ export class BookList extends Component {
 
     
   }
-  updateBook =(book) => {
-    console.log(book)
-    let updateBookLink = "/update-book/"+book
+  updateBook =(id,name,genre,publisher,year) => {
+    console.log(id)
+    let updateBookLink = "/update-book/"+id+"/"+name+"/"+genre+"/"+publisher+"/"+year
     this.props.history.push(updateBookLink)
     
     
@@ -54,7 +54,7 @@ export class BookList extends Component {
                              <li>{book.book_publisher}</li>
                              <li>{book.book_year}</li>
                            
-                             <button onClick={()=>this.updateBook(book.id)}>Update Book Info</button>
+                             <button onClick={()=>this.updateBook(book.id,book.book_name,book.book_genre,book.book_publisher,book.book_year)}>Update Book Info</button>
                         
                            
                     </div> 

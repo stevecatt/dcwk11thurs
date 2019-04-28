@@ -14,7 +14,13 @@ export class UpdateBook extends Component {
     }
   }
 
-  
+  viewAllBooks =() => {
+    console.log("hopefully going back to view all books")
+   
+    this.props.history.push('/view-all-books')
+    
+    
+ }
   
 
   
@@ -43,12 +49,28 @@ export class UpdateBook extends Component {
       id:this.state.id
     })
   })
+  .then(response => response.json())
+  .then(result => {
+      if(result.success) {
+        console.log("success")
+        // go fetch the books from the server and display it
+        this.viewAllBooks()
+      } else {
+        // show some error
+      }
+    })
+  
   
   }
   componentDidMount(){
-    console.log(this.props.match.params.book)
+    console.log(this.props.match.params.id)
     this.setState({
-      id: this.props.match.params.book
+      id: this.props.match.params.id,
+      name:this.props.match.params.name,
+      genre:this.props.match.params.genre,
+      publisher:this.props.match.params.publisher,
+      year: this.props.match.params.year
+
     })
     
   }
@@ -57,13 +79,13 @@ export class UpdateBook extends Component {
   render() {
     return (
       <div>
-        <h1>Update</h1>
+        <h1>Update {this.state.name}</h1>
         
-        <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter name" name="name" />
-        <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter genre" name="genre" />
-       <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter publisher" name="publisher" />
-        <input type="text" onChange={this.handleTextBoxChange} placeholder="Enter year" name="year" />
-        <button onClick={this.handleSaveBookClick}>Save</button>
+        <input type="text" onChange={this.handleTextBoxChange} name="name" value={this.state.name}/>
+        <input type="text" onChange={this.handleTextBoxChange} name="genre" value={this.state.genre}/>
+       <input type="text" onChange={this.handleTextBoxChange}  name="publisher" value={this.state.publisher} />
+        <input type="text" onChange={this.handleTextBoxChange} name="year" value={this.state.year} />
+        <button onClick={this.handleUpdateBookClick}>Save</button>
       </div>
     )
   }
