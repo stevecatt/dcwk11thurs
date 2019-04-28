@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './BaseLayout.css';
-import {BookList} from './BookList'
-import {AddBook} from './AddBook'
-import {Link, NavLink} from 'react-router-dom'
-import {DeleteBook} from './DeleteBook'
-import {UpdateBook} from './UpdateBook'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+// import {BookList} from './BookList'
+// import {AddBook} from './AddBook'
+import {NavLink} from 'react-router-dom'
+// import {DeleteBook} from './DeleteBook'
+// import {UpdateBook} from './UpdateBook'
+// import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
 export class Menu extends Component {

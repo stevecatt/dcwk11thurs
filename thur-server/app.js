@@ -63,7 +63,7 @@ app.post('/api/books',(req,res) => {
   
   app.get('/api/books',(req,res) => {
     
-    db.any('SELECT * FROM reactbooks')
+    db.any('SELECT * FROM reactbooks ORDER BY id')
     .then((books)=>{res.json(books)})
     
   })
