@@ -8,6 +8,9 @@ import {AddBook} from './components/AddBook'
 import {BookList} from './components/BookList'
 import {DeleteBook} from './components/DeleteBook'
 import {UpdateBook} from './components/UpdateBook'
+import {Login} from './components/Login'
+import{Register}from './components/Login'
+
 //import {Books} from './components/Books'
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
@@ -22,7 +25,8 @@ ReactDOM.render(
             <Route path="/add-book" component={AddBook} />
             <Route path="/delete-book" component={DeleteBook} />
             <Route path="/update-book/:id/:name/:genre/:publisher/:year" component={UpdateBook} />
-  
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
         </Switch>
         </BaseLayout>
     </BrowserRouter>, 
